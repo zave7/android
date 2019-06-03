@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Ex51Activity">
+
+    <Button
+        android:layout_width="110dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:background="#7cfc00"
+        android:gravity="right|top"
+        android:text="버튼1"
+        android:textSize="28sp" />
+
+    <Button
+        android:layout_width="110dp"
+        android:layout_height="100dp"
+        android:layout_gravity="left"
+        android:background="#7cfc00"
+        android:gravity="left|center"
+        android:text="버튼1"
+        android:textSize="28sp" />
+
+    <Button
+        android:layout_width="110dp"
+        android:layout_height="100dp"
+        android:layout_gravity="right"
+        android:background="#7cfc00"
+        android:gravity="right|bottom"
+        android:text="버튼1"
+        android:textSize="28sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#e6e6fa"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="110dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:background="#d2b48c"
+            android:text="버튼"
+            android:textSize="28sp" />
+
+    </LinearLayout>
+</LinearLayout>

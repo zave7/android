@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/bt_ex42"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="실습 42"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_ex43"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="실습 43"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_ex51"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="실습 51"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_ex4_24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="실습 4_24"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_inflation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="Inflation"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_newActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="새화면띄우기(닫기)"
+                android:textSize="30sp" />
+
+
+            <Button
+                android:id="@+id/bt_ex_10_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="영화별점주기"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/bt_ex_10_20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="암시적 인텐트"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/lifecycle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="Life Cycle"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="로그인"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/otherapp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="다른앱의 화면 띄우기"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/customListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="CustomListView"
+                android:textSize="30sp" />
+        </LinearLayout>
+    </ScrollView>
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/welcome"-->
+    <!--app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--app:layout_constraintRight_toRightOf="parent"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/bt1"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/click"-->
+    <!--tools:layout_editor_absoluteX="166dp"-->
+    <!--tools:layout_editor_absoluteY="410dp" />-->
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:layout_height="wrap_content" />-->
+    <!--<TextView-->
+    <!--android:text="@string/welcome"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content" />-->
+    <!--<button-->
+    <!--android:text="@string/click"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content" />-->
+</LinearLayout>
