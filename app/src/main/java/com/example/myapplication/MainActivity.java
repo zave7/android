@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
         activityMap.put(R.id.login, LoginActivity.class);
         activityMap.put(R.id.otherapp, CallComponentActivity.class);
         activityMap.put(R.id.customListView, CustomListViewActivity.class);
+        activityMap.put(R.id.seekbar, SeekBarActivity.class);
+        activityMap.put(R.id.rate, ExchangeRateActivity.class);
+
 
     }
 

@@ -1,6 +1,8 @@
 package com.ktiri.dto;
 
-public class ProductCategory {
+import java.io.Serializable;
+
+public class ProductCategory implements Serializable {
 	private String cate_no; //문자열은 char 쓰지말고 String 으로!!!
 	private String cate_name;
 	

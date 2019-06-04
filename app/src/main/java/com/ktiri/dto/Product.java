@@ -7,7 +7,7 @@ public class Product implements Serializable{ // 인터페이스 Serializable는
 	private String prod_no;
 	
 	private String prod_name;
-	transient private int prod_price; //직렬화에서 제외 //기본 값인 0값을 유지한다.
+	private int prod_price; //직렬화에서 제외 //기본 값인 0값을 유지한다.
 	private String prod_detail;
 	private ProductCategory productCategory;
 	public Product() {

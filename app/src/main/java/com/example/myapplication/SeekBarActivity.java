@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 public class SeekBarActivity extends AppCompatActivity {
 
@@ -21,13 +22,24 @@ public class SeekBarActivity extends AppCompatActivity {
 
     public void progress(View view) {
         final SeekBar seekBar = (SeekBar) findViewById(R.id.sb);
+        final TextView tvResult = (TextView) findViewById(R.id.tvResult);
         new Thread() {
             public void run() {
-                int start = seekBar.getProgress();
-                for (int i = start; i <= 100; i++)
-                seekBar.setProgress(i);
-                SystemClock.sleep(100);
+                final int start = seekBar.getProgress();
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            for (int i = start; i <= 100; i++) {
+                                seekBar.setProgress(i);
+                                tvResult.setText("진행률 : " + i + "%");
+                                SystemClock.sleep(100);
+                            }
+                        }
+                    });
+
                 }
+
         }.start();
 
     }

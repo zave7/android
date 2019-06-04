@@ -30,7 +30,9 @@ public class LoginResultActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         intent.putExtra("msg", id + "님 환영합니다!");
 
+
+
         startActivity(intent);
-        finish();
+        finish(); //화면 사라지기 onPause -> onStop
     }
 }

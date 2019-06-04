@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="btClick"
                 android:text="실습 42"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/bt_ex43"
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="btClick"
                 android:text="실습 43"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/bt_ex51"
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="btClick"
                 android:text="실습 51"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/bt_ex4_24"
@@ -47,15 +47,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="btClick"
                 android:text="실습 4_24"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/bt_inflation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="btClick"
-                android:text="Inflation"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/bt_newActivity"
@@ -63,7 +55,15 @@
                 android:layout_height="wrap_content"
                 android:onClick="btClick"
                 android:text="새화면띄우기(닫기)"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/bt_inflation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="Inflation"
+                android:textSize="20sp" />
 
 
             <Button
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="btClick"
                 android:text="영화별점주기"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/bt_ex_10_20"
@@ -80,15 +80,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="btClick"
                 android:text="암시적 인텐트"
-                android:textSize="30sp" />
-
-            <Button
-                android:id="@+id/lifecycle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="btClick"
-                android:text="Life Cycle"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/login"
@@ -96,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="btClick"
                 android:text="로그인"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/otherapp"
@@ -104,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:onClick="btClick"
                 android:text="다른앱의 화면 띄우기"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/customListView"
@@ -112,7 +104,32 @@
                 android:layout_height="wrap_content"
                 android:onClick="btClick"
                 android:text="CustomListView"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/lifecycle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="Life Cycle"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="프로그레스바"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="환율"
+                android:textSize="20sp" />
+
         </LinearLayout>
     </ScrollView>
     <!--<TextView-->
