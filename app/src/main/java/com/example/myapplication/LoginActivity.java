@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
 
         new Thread() {
             public void run() {
-                String urlStr = "http://192.168.14.65/myeljstl/login";
+                String urlStr = "http://192.168.14.52/myeljstl/login";
                 InputStream inputStream = null;
 
                 try {
@@ -48,27 +48,27 @@ public class LoginActivity extends AppCompatActivity {
 
                     DataOutputStream dataOutputStream = new DataOutputStream(conn.getOutputStream());
                     dataOutputStream.writeBytes("id=" + id + "&pass=" + pass); // massage body에 쓰기
-
-                    String jsession_cookie = pref.getString("JSESSIONID", null);
-                    if(jsession_cookie != null) { //요청시에 이전에 로그인을 했는지 판단
-                        Log.i("LoginActivity", "이미 로그인 성공된 상태");
-                        conn.setRequestProperty("Cookie", jsession_cookie); //요청 헤더 설정 작업
-                    } else {
-                        Log.i("LoginActivity", "로그인 안된 상태");
-                    }
+                    //요청헤더에 쿠키 추가
+                    String jsession_cookie = pref.getString("JSESSIONID", null); // 해당 이름의 프리퍼런스가 없으면 null로 대입
+//                    if(jsession_cookie != null) { //요청시에 이전에 로그인을 했는지 판단
+//                        Log.i("LoginActivity", "이미 로그인 성공된 상태");
+//                        conn.setRequestProperty("Cookie", jsession_cookie); //요청 헤더 설정 작업
+//                    } else {
+//                        Log.i("LoginActivity", "로그인 안된 상태");
+//                    }
 
                     int responseCode = conn.getResponseCode();
-                    if (responseCode == 200) { //정상응답
-                        inputStream = conn.getInputStream();
-                        StringBuffer sb = new StringBuffer();
-                        int readValue = -1;
-                        while ((readValue = inputStream.read()) != -1) {
-                            sb.append((char)readValue);
-                        }
+                    if (responseCode == HttpURLConnection.HTTP_OK) { //정상응답
+//                        inputStream = conn.getInputStream();
+//                        StringBuffer sb = new StringBuffer();
+//                        int readValue = -1;
+//                        while ((readValue = inputStream.read()) != -1) {
+//                            sb.append((char)readValue);
+//                        }
 
                         Log.i("LoginActivity", conn.getHeaderField("Set-cookie")); //응답받으면 쿠키값이 전달되어있을 것으로 예상
-                        Log.i("LoginActivity", sb.toString());
-                        if(sb.toString().trim().equals("1")) { // 로그인이 성공된 경우
+//                        Log.i("LoginActivity", sb.toString());
+//                        if(sb.toString().trim().equals("1")) { // 로그인이 성공된 경우
                             List<String> cookies = conn.getHeaderFields().get("Set-cookie");
                             if(cookies != null) {
                                 for (String cookie : cookies) {
@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                                     editor.apply(); //xml파일에 쓰기 작업을 비동기 처리
                                 }
                             }
-                        }
+//                        }
 
                     }
                 } catch (MalformedURLException e) {

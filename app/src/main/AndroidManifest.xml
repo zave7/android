@@ -12,9 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ExchangeRateActivity"></activity>
+        <activity android:name=".ViewCartActivity"></activity>
+        <activity android:name=".ExchangeRateActivity" />
         <activity android:name=".NetworkActivity" />
-        <activity android:name=".SeekBarActivity"></activity>
+        <activity android:name=".SeekBarActivity" />
         <activity android:name=".ProductInfoActivity" />
         <activity android:name=".CustomListViewActivity" />
         <activity android:name=".Ex11_2Activity" />

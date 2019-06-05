@@ -1,17 +1,21 @@
 package com.example.myapplication;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ktiri.dto.Product;
+
+import org.json.JSONArray;
+
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -19,51 +23,23 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
-public class ProductInfoActivity extends AppCompatActivity {
+public class ViewCartActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_info);
-        TextView tvProd_no = (TextView) findViewById(R.id.tvProd_no);//하위 버전 호환성을 고려해서 다운 캐스팅을 해줘야한다.
-        TextView tvProd_name = (TextView) findViewById(R.id.tvProd_name);
-        TextView tvProd_price = (TextView) findViewById(R.id.tvProd_price);
+        setContentView(R.layout.activity_view_cart);
 
-        Intent intent = getIntent();
-        Product product = (Product) intent.getExtras().get("productInfo"); // 리턴 타입이 번들
-        tvProd_no.setText(product.getProd_no());
-        tvProd_name.setText(product.getProd_name());
-        tvProd_price.setText(String.valueOf(product.getProd_price()));
-
-        NumberPicker numberPicker = (NumberPicker) findViewById(R.id.npQuantity);
-        numberPicker.setMinValue(1);
-        numberPicker.setMaxValue(10);
-        numberPicker.setWrapSelectorWheel(true);
-
-    }
-
-    public void addCart(View view) {
-        NumberPicker numberPicker = (NumberPicker) findViewById(R.id.npQuantity);
-        final String prod_no = ((TextView) findViewById(R.id.tvProd_no)).getText().toString();
-        final int quantity = numberPicker.getValue();
-        //응답 받은 쿠키를 저장하기 위해
-//        final SharedPreferences pref = getSharedPreferences("sessionCookie", Context.MODE_PRIVATE);
-//        final SharedPreferences.Editor editor = pref.edit();
         final SharedPreferences pref = getSharedPreferences("sessionCookie", Context.MODE_PRIVATE);
 
         final SharedPreferences.Editor editor = pref.edit();
 
-
-
-
-
         new Thread() {
             public void run() {
-                String urlStr = "http://192.168.14.65/myeljstl/addcart";
+                String urlStr = "http://192.168.14.65/myeljstl/viewcart";
                 InputStream inputStream = null;
-
+                ByteArrayOutputStream byteArrayOutputStream = null;
                 try {
-                    urlStr +="?no=" + prod_no + "&count=" + quantity;
                     URL url = new URL(urlStr);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setDoOutput(true); //요청데이터를 출력허용
@@ -97,14 +73,45 @@ public class ProductInfoActivity extends AppCompatActivity {
                                 editor.apply(); //xml파일에 쓰기 작업을 비동기 처리
                             }
                         }
-                        runOnUiThread(new Runnable() {
+
+                        inputStream = conn.getInputStream(); //응답결과 입력 스트림
+                        byte[] buffer = new byte[1024];
+                        byteArrayOutputStream = new ByteArrayOutputStream(buffer.length);
+                        int readLength = -1;
+                        while ((readLength = inputStream.read(buffer)) != -1) {
+//                        String str = new String(buffer, 0, readLength);
+//                        JSONObject jsonObject = new JSONObject();
+                            //Log.i("NetworkActivity", "서버가 보내준 응답 결과 : " + str);
+                            byteArrayOutputStream.write(buffer, 0, readLength);
+                        }
+
+                        byte[] byteData = null;
+                        byteData = byteArrayOutputStream.toByteArray();
+                        //응답내용 문자열
+                        String str = new String(byteData, 0, byteData.length);
+                        Log.i("json", str);
+                        ObjectMapper objectMapper = new ObjectMapper();
+
+                       JsonNode jsonNode = objectMapper.readTree(str).get(0);
+                        final String prod_no = jsonNode.get("prod_no").toString().replace("\"", "");
+                        final String prod_name = jsonNode.get("prod_name").textValue();
+                        final String prod_price = jsonNode.get("prod_price").toString();
+                        final String prod_quantity = jsonNode.get("quantity").toString();
+
+                       runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(ProductInfoActivity.this, "장바구니 넣기 성공", Toast.LENGTH_LONG).show();
+                                TextView cartProd_no = findViewById(R.id.cartProd_no);
+                                TextView cartProd_name = findViewById(R.id.cartProd_name);
+                                TextView cartProd_price = findViewById(R.id.cartProd_price);
+                                TextView cartProd_quantity = findViewById(R.id.cartProd_quantity);
+                                cartProd_no.setText("상품 번호 : " + prod_no);
+                                cartProd_name.setText("상품 번호 : " + prod_name);
+                                cartProd_price.setText("상품 번호 : " + prod_price);
+                                cartProd_quantity.setText("상품 번호 : " + prod_quantity);
+
                             }
                         });
-
-                        finish();
                     }
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
@@ -114,5 +121,6 @@ public class ProductInfoActivity extends AppCompatActivity {
 
             }
         }.start();
+
     }
 }

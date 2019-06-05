@@ -130,6 +130,13 @@
                 android:text="환율"
                 android:textSize="20sp" />
 
+            <Button
+                android:id="@+id/viewcart"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="btClick"
+                android:text="장바구니보기"
+                android:textSize="20sp" />
         </LinearLayout>
     </ScrollView>
     <!--<TextView-->
